@@ -17,4 +17,4 @@ import { CadastroUsuarioPage } from './cadastro-usuario.page';
   ],
   declarations: [CadastroUsuarioPage]
 })
-export class CadastroUsuarioPageModule {}
+export class CadastroUsuarioPageModule { }

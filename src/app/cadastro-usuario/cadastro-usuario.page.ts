@@ -66,16 +66,46 @@ export class CadastroUsuarioPage implements OnInit {
     this.resetForm();
   }
 
+  /** Gradientes para os avatares de alunos. */
+  private readonly avatarGradients = [
+    'linear-gradient(135deg, #6C5CE7, #a29bfe)',
+    'linear-gradient(135deg, #00CEC9, #81ecec)',
+    'linear-gradient(135deg, #fd79a8, #fab1a0)',
+    'linear-gradient(135deg, #e17055, #fdcb6e)',
+    'linear-gradient(135deg, #00b894, #55efc4)',
+    'linear-gradient(135deg, #0984e3, #74b9ff)',
+  ];
+
   /**
-   * Retorna a cor semântica do Ionic baseada na quantidade de faltas do aluno.
-   *
-   * @param aluno - O aluno a ser avaliado.
-   * @returns `'danger'` se ≥ 10 faltas, `'warning'` se ≥ 5, `'success'` caso contrário.
+   * Retorna um gradiente para o avatar baseado no índice do aluno.
    */
-  getAlunoColor(aluno: Aluno): string {
-    if (aluno.faltas >= 10) return 'danger';
-    if (aluno.faltas >= 5) return 'warning';
-    return 'success';
+  getAvatarGradient(index: number): string {
+    return this.avatarGradients[index % this.avatarGradients.length];
+  }
+
+  /**
+   * Retorna a porcentagem de faltas para a barra de progresso (máx 15).
+   */
+  getFaltasPercent(aluno: Aluno): number {
+    return Math.min((aluno.faltas / 15) * 100, 100);
+  }
+
+  /**
+   * Retorna a classe CSS de status baseada na quantidade de faltas.
+   */
+  getStatusClass(aluno: Aluno): string {
+    if (aluno.faltas >= 10) return 'status-badge danger';
+    if (aluno.faltas >= 5) return 'status-badge warn';
+    return 'status-badge ok';
+  }
+
+  /**
+   * Retorna o label de status baseado na quantidade de faltas.
+   */
+  getStatusLabel(aluno: Aluno): string {
+    if (aluno.faltas >= 10) return 'Crítico';
+    if (aluno.faltas >= 5) return 'Atenção';
+    return 'Regular';
   }
 
   /**

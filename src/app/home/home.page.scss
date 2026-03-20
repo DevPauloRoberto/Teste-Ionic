@@ -1,27 +1,269 @@
-#container {
-  text-align: center;
+/* ==========================================================
+   Home Page – Premium UX Design
+   ========================================================== */
 
+:host {
+  --hero-height: 300px;
+}
+
+// ── Hero Section ──
+.home-content {
+  --background: var(--ion-color-light);
+}
+
+.hero-section {
+  position: relative;
+  height: var(--hero-height);
+  background: linear-gradient(135deg, var(--ion-color-primary) 0%, #a29bfe 60%, var(--ion-color-secondary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0 0 32px 32px;
+}
+
+.hero-bg-shapes {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  inset: 0;
+  pointer-events: none;
+
+  .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+    background: #fff;
+  }
+
+  .shape-1 {
+    width: 180px;
+    height: 180px;
+    top: -40px;
+    right: -30px;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .shape-2 {
+    width: 120px;
+    height: 120px;
+    bottom: 10px;
+    left: -20px;
+    animation: float 8s ease-in-out infinite reverse;
+  }
+
+  .shape-3 {
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 60%;
+    animation: float 7s ease-in-out infinite 1s;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-18px) scale(1.05); }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
 
-  color: #8c8c8c;
+.hero-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  margin-bottom: 16px;
+  animation: pulse-icon 3s ease-in-out infinite;
 
+  ion-icon {
+    font-size: 36px;
+    color: #fff;
+  }
+}
+
+@keyframes pulse-icon {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+  50%      { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  opacity: 0.85;
   margin: 0;
+  font-weight: 400;
 }
 
-#container a {
-  text-decoration: none;
+// ── Main Container ──
+.main-container {
+  padding: 0 20px 32px;
+  margin-top: -48px;
+  position: relative;
+  z-index: 3;
+}
+
+// ── Glass Card ──
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--app-border-radius);
+  padding: 32px 24px;
+  box-shadow: var(--app-card-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--ion-color-primary), #a29bfe);
+  margin-bottom: 16px;
+
+  ion-icon {
+    font-size: 26px;
+    color: #fff;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3436;
+  margin: 0 0 8px;
+}
+
+.card-description {
+  font-size: 0.92rem;
+  color: var(--ion-color-medium);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.cta-button {
+  --border-radius: 14px;
+  --box-shadow: 0 4px 16px rgba(108, 92, 231, 0.35);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  height: 50px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+// ── Features Grid ──
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255,255,255,0.6);
+  transition: transform 0.2s ease;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+
+  ion-icon {
+    font-size: 22px;
+    color: #fff;
+  }
+
+  &.bg-primary {
+    background: linear-gradient(135deg, var(--ion-color-primary), #a29bfe);
+  }
+  &.bg-secondary {
+    background: linear-gradient(135deg, var(--ion-color-secondary), #81ecec);
+  }
+  &.bg-tertiary {
+    background: linear-gradient(135deg, var(--ion-color-tertiary), #fab1a0);
+  }
+}
+
+.feature-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #636e72;
+  text-align: center;
+}
+
+// ── Footer ──
+.footer-text {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--ion-color-medium);
+  margin-top: 32px;
+  opacity: 0.7;
+
+  ion-icon {
+    font-size: 0.75rem;
+    vertical-align: middle;
+  }
+}
+
+// ── Dark mode adjustments ──
+@media (prefers-color-scheme: dark) {
+  .home-content {
+    --background: #1a1a2e;
+  }
+
+  .glass-card {
+    background: rgba(30, 30, 50, 0.85);
+    border-color: rgba(255,255,255,0.08);
+  }
+
+  h2 {
+    color: #f5f5f5;
+  }
+
+  .feature-item {
+    background: rgba(30, 30, 50, 0.75);
+    border-color: rgba(255,255,255,0.06);
+  }
+
+  .feature-label {
+    color: #b2bec3;
+  }
 }

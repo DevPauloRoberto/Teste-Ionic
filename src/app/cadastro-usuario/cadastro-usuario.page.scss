@@ -1,59 +1,433 @@
-/* =========================================================
-   Estilos exclusivos de CadastroUsuarioPage
-   Complementam os componentes Ionic e as classes Tailwind
-   ========================================================= */
+/* ==========================================================
+   Cadastro de Usuário – Premium UX Design
+   ========================================================== */
+
+:host {
+  --header-gradient-height: 140px;
+}
+
+// ── Content background ──
+.cadastro-content {
+  --background: var(--ion-color-light);
+}
+
+// ── Toolbar ──
+.custom-header ion-toolbar {
+  --background: linear-gradient(135deg, var(--ion-color-primary) 0%, #a29bfe 100%);
+  --border-width: 0;
+}
+
+// ── Gradient bar under header ──
+.header-gradient {
+  height: var(--header-gradient-height);
+  background: linear-gradient(135deg, var(--ion-color-primary) 0%, #a29bfe 60%, var(--ion-color-secondary) 100%);
+  border-radius: 0 0 28px 28px;
+  margin-bottom: -80px;
+}
+
+// ── Glassmorphism Card (shared) ──
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--app-border-radius, 16px);
+  box-shadow: var(--app-card-shadow, 0 4px 24px rgba(108, 92, 231, 0.10));
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+// ── Form Container ──
+.form-container {
+  padding: 0 16px;
+  position: relative;
+  z-index: 2;
+}
 
 .form-card {
-    margin-bottom: 16px;
+  padding: 24px 20px;
+  margin-bottom: 24px;
 }
 
-.aluno-card {
-    margin-bottom: 12px;
-    transition: box-shadow 0.2s ease;
-
-    &:hover {
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-    }
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
 }
 
-.info-row {
-    font-size: 0.95rem;
-    line-height: 1.6;
+.title-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, var(--ion-color-primary), #a29bfe);
+  flex-shrink: 0;
+
+  ion-icon {
+    font-size: 22px;
+    color: #fff;
+  }
 }
 
-/** Destaque visual para mensagens personalizadas */
-.mensagem {
-    font-style: italic;
-    font-size: 0.875rem;
-    padding: 6px 10px;
-    border-left: 3px solid var(--ion-color-primary);
-    background: rgba(var(--ion-color-primary-rgb), 0.08);
-    border-radius: 4px;
+h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d3436;
+  margin: 0;
 }
 
-/** Estado vazio – centralizado verticalmente */
-.empty-state {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 16px;
-    text-align: center;
+.card-subtitle {
+  font-size: 0.82rem;
+  color: var(--ion-color-medium);
+  margin: 2px 0 0;
+}
+
+// ── Custom Input Fields ──
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #636e72;
+  padding-left: 4px;
+}
+
+.custom-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ion-color-light);
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  padding: 6px 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus-within {
+    border-color: var(--ion-color-primary);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.12);
+  }
+
+  .input-icon {
+    font-size: 18px;
     color: var(--ion-color-medium);
+    flex-shrink: 0;
+  }
 
-    .empty-icon {
-        font-size: 64px;
-        margin-bottom: 16px;
-        opacity: 0.5;
-    }
+  ion-input {
+    --padding-start: 0;
+    --padding-end: 0;
+    font-size: 0.92rem;
+  }
+}
 
-    p {
-        margin: 4px 0;
-        font-size: 1rem;
-    }
+// ── Submit Button ──
+.submit-btn {
+  margin-top: 20px;
+  --border-radius: 14px;
+  --box-shadow: 0 4px 16px rgba(108, 92, 231, 0.35);
+  font-weight: 600;
+  font-size: 0.95rem;
+  height: 48px;
+  transition: transform 0.2s ease;
 
-    .text-sm {
-        font-size: 0.85rem;
-        opacity: 0.75;
-    }
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+// ── List Container ──
+.list-container {
+  padding: 0 16px 24px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2d3436;
+    margin: 0;
+  }
+}
+
+.badge-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--ion-color-primary), #a29bfe);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0 8px;
+}
+
+// ── Aluno Card ──
+.aluno-card {
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+
+  // Color stripe on left
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  &.status-ok::before { background: var(--ion-color-success); }
+  &.status-warn::before { background: var(--ion-color-warning); }
+  &.status-danger::before { background: var(--ion-color-danger); }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.aluno-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.aluno-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.aluno-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.aluno-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2d3436;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aluno-detail {
+  font-size: 0.78rem;
+  color: var(--ion-color-medium);
+}
+
+.delete-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(225, 112, 85, 0.1);
+  color: var(--ion-color-danger);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+
+  ion-icon { font-size: 18px; }
+
+  &:active {
+    background: rgba(225, 112, 85, 0.25);
+  }
+}
+
+// ── Faltas Display ──
+.aluno-body {
+  padding-left: 54px; // align with content after avatar
+}
+
+.faltas-display {
+  margin-bottom: 12px;
+}
+
+.faltas-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.faltas-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+
+  .status-ok & { background: linear-gradient(90deg, var(--ion-color-success), #55efc4); }
+  .status-warn & { background: linear-gradient(90deg, var(--ion-color-warning), #ffeaa7); }
+  .status-danger & { background: linear-gradient(90deg, var(--ion-color-danger), #fab1a0); }
+}
+
+.faltas-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faltas-count {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #636e72;
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &.ok {
+    background: rgba(0, 184, 148, 0.12);
+    color: var(--ion-color-success);
+  }
+  &.warn {
+    background: rgba(253, 203, 110, 0.25);
+    color: #e17055;
+  }
+  &.danger {
+    background: rgba(225, 112, 85, 0.12);
+    color: var(--ion-color-danger);
+  }
+}
+
+// ── Action Buttons ──
+.aluno-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+
+  ion-icon { font-size: 16px; }
+
+  &:active {
+    transform: scale(0.94);
+  }
+
+  &.add-falta {
+    background: rgba(108, 92, 231, 0.1);
+    color: var(--ion-color-primary);
+  }
+
+  &.remove-falta {
+    background: rgba(253, 203, 110, 0.2);
+    color: #e17055;
+  }
+}
+
+// ── Empty State ──
+.empty-state {
+  margin: 0 16px;
+  padding: 48px 24px;
+  text-align: center;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2d3436;
+    margin: 16px 0 6px;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: var(--ion-color-medium);
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.empty-illustration {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(108, 92, 231, 0.08);
+
+  ion-icon {
+    font-size: 36px;
+    color: var(--ion-color-primary);
+    opacity: 0.6;
+  }
+}
+
+// ── Dark mode ──
+@media (prefers-color-scheme: dark) {
+  .cadastro-content {
+    --background: #1a1a2e;
+  }
+
+  .glass-card {
+    background: rgba(30, 30, 50, 0.85);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  h2, h3, h4, .section-header h3 {
+    color: #f5f5f5;
+  }
+
+  .aluno-name { color: #f5f5f5; }
+
+  .field-label { color: #b2bec3; }
+
+  .custom-input {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .faltas-bar { background: rgba(255, 255, 255, 0.08); }
+
+  .delete-btn { background: rgba(225, 112, 85, 0.15); }
+
+  .empty-illustration { background: rgba(108, 92, 231, 0.15); }
 }

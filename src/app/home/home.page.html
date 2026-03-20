@@ -1,32 +1,63 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="home-content">
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar color="primary">
-      <ion-title size="large">Home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
 
-  <!-- Card de boas-vindas -->
-  <ion-card class="welcome-card">
-    <ion-card-header>
-      <ion-card-title>Bem-vindo!</ion-card-title>
-      <ion-card-subtitle>Sistema de Gerenciamento de Alunos</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <p class="ion-margin-bottom">
+    <div class="hero-inner">
+      <div class="hero-icon-wrapper">
+        <ion-icon name="school-outline"></ion-icon>
+      </div>
+      <h1 class="hero-title">EduControl</h1>
+      <p class="hero-subtitle">Sistema de Gerenciamento de Alunos</p>
+    </div>
+  </div>
+
+  <!-- Main Card -->
+  <div class="main-container">
+    <div class="glass-card welcome-card">
+      <div class="card-icon">
+        <ion-icon name="hand-right-outline"></ion-icon>
+      </div>
+      <h2>Bem-vindo!</h2>
+      <p class="card-description">
         Gerencie o cadastro de alunos, acompanhe as faltas e
         mantenha o controle da turma de forma simples e rápida.
       </p>
-      <ion-button expand="block" (click)="irParaCadastro()">
+
+      <ion-button expand="block" shape="round" class="cta-button" (click)="irParaCadastro()" id="btn-go-to-cadastro">
         <ion-icon name="people-outline" slot="start"></ion-icon>
-        Ir para Cadastro de Alunos
+        Gerenciar Alunos
       </ion-button>
-    </ion-card-content>
-  </ion-card>
+    </div>
+
+    <!-- Feature Highlights -->
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon bg-primary">
+          <ion-icon name="person-add-outline"></ion-icon>
+        </div>
+        <span class="feature-label">Cadastro Rápido</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon bg-secondary">
+          <ion-icon name="bar-chart-outline"></ion-icon>
+        </div>
+        <span class="feature-label">Controle de Faltas</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon bg-tertiary">
+          <ion-icon name="shield-checkmark-outline"></ion-icon>
+        </div>
+        <span class="feature-label">Status em Tempo Real</span>
+      </div>
+    </div>
+
+    <p class="footer-text">v1.0 · Feito com <ion-icon name="heart" color="danger"></ion-icon> para educadores</p>
+  </div>
 
 </ion-content>
