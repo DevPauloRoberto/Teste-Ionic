@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Card de boas-vindas -->
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title>Bem-vindo!</ion-card-title>
+      <ion-card-subtitle>Sistema de Gerenciamento de Alunos</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="ion-margin-bottom">
+        Gerencie o cadastro de alunos, acompanhe as faltas e
+        mantenha o controle da turma de forma simples e rápida.
+      </p>
+      <ion-button expand="block" (click)="irParaCadastro()">
+        <ion-icon name="people-outline" slot="start"></ion-icon>
+        Ir para Cadastro de Alunos
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

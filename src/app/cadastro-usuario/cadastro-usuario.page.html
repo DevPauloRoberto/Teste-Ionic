@@ -1,0 +1,101 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Alunos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- Formulário de Cadastro -->
+  <ion-card class="form-card">
+    <ion-card-header>
+      <ion-card-title class="text-lg font-semibold">Cadastrar Aluno</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input [(ngModel)]="form.nome" placeholder="Digite o nome" autocomplete="name">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Idade</ion-label>
+        <ion-input type="number" [(ngModel)]="form.idade" placeholder="Digite a idade" min="1" max="120">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Curso</ion-label>
+        <ion-input [(ngModel)]="form.curso" placeholder="Digite o curso">
+        </ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="ion-margin-top" (click)="cadastrarAluno()">
+        <ion-icon name="person-add-outline" slot="start"></ion-icon>
+        Cadastrar Aluno
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de Alunos -->
+  <div class="list-header" *ngIf="alunos.length > 0">
+    <h2 class="text-base font-semibold ion-margin-top ion-margin-bottom">
+      Alunos Cadastrados ({{ alunos.length }})
+    </h2>
+  </div>
+
+  <ion-card *ngFor="let aluno of alunos; let i = index" [color]="getAlunoColor(aluno)" class="aluno-card">
+
+    <ion-card-header>
+      <ion-card-subtitle>Aluno #{{ i + 1 }}</ion-card-subtitle>
+      <ion-card-title>{{ aluno.nome }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="flex flex-col gap-1 mb-3">
+        <div class="info-row">
+          <strong>Idade:</strong> {{ aluno.idade }}
+        </div>
+        <div class="info-row">
+          <strong>Curso:</strong> {{ aluno.curso }}
+        </div>
+        <div class="info-row">
+          <strong>Faltas:</strong> {{ aluno.faltas }}
+        </div>
+      </div>
+
+      <div *ngIf="getAlunoMensagem(aluno)" class="mensagem ion-margin-bottom">
+        {{ getAlunoMensagem(aluno) }}
+      </div>
+
+      <div class="flex flex-wrap gap-2 justify-between items-center">
+        <div class="flex gap-2">
+          <ion-button size="small" (click)="addFalta(aluno)">
+            <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+            Falta
+          </ion-button>
+          <ion-button size="small" color="warning" (click)="removerFalta(aluno)">
+            <ion-icon name="remove-circle-outline" slot="start"></ion-icon>
+            Falta
+          </ion-button>
+        </div>
+        <ion-button size="small" color="medium" fill="clear" (click)="removerAluno(i)">
+          <ion-icon name="trash-outline" slot="icon-only" color="danger"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card-content>
+
+  </ion-card>
+
+  <!-- Estado vazio -->
+  <div class="empty-state" *ngIf="alunos.length === 0">
+    <ion-icon name="people-outline" class="empty-icon"></ion-icon>
+    <p>Nenhum aluno cadastrado ainda.</p>
+    <p class="text-sm">Preencha o formulário acima para adicionar.</p>
+  </div>
+
+</ion-content>

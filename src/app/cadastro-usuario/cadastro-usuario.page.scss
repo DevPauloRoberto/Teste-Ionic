@@ -1,0 +1,59 @@
+/* =========================================================
+   Estilos exclusivos de CadastroUsuarioPage
+   Complementam os componentes Ionic e as classes Tailwind
+   ========================================================= */
+
+.form-card {
+    margin-bottom: 16px;
+}
+
+.aluno-card {
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    }
+}
+
+.info-row {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/** Destaque visual para mensagens personalizadas */
+.mensagem {
+    font-style: italic;
+    font-size: 0.875rem;
+    padding: 6px 10px;
+    border-left: 3px solid var(--ion-color-primary);
+    background: rgba(var(--ion-color-primary-rgb), 0.08);
+    border-radius: 4px;
+}
+
+/** Estado vazio – centralizado verticalmente */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 16px;
+    text-align: center;
+    color: var(--ion-color-medium);
+
+    .empty-icon {
+        font-size: 64px;
+        margin-bottom: 16px;
+        opacity: 0.5;
+    }
+
+    p {
+        margin: 4px 0;
+        font-size: 1rem;
+    }
+
+    .text-sm {
+        font-size: 0.85rem;
+        opacity: 0.75;
+    }
+}
