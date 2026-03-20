@@ -79,18 +79,6 @@ export class CadastroUsuarioPage implements OnInit {
   }
 
   /**
-   * Retorna uma mensagem personalizada para alunos específicos.
-   *
-   * @param aluno - O aluno a ser avaliado.
-   * @returns String com a mensagem ou string vazia se não houver mensagem especial.
-   */
-  getAlunoMensagem(aluno: Aluno): string {
-    if (aluno.nome === 'Matheus') return 'Caralho é um aluno muito homossexual e coda fraco';
-    if (aluno.nome === 'Paulo') return 'Paulo é um aluno muito foda, o Mago do ASP.Net';
-    return '';
-  }
-
-  /**
    * Incrementa o contador de faltas de um aluno em 1.
    *
    * @param aluno - O aluno que receberá a falta.
